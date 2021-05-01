@@ -1,2 +1,3 @@
-# Computer-hardware-store-Bakery
-for softwareDesign2
+## Авторы:
+- :black_heart: Улан у. Нурдин :black_heart:
+- 💀 Элмирова Бермет 💀
