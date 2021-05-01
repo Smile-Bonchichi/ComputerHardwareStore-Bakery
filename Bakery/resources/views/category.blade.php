@@ -48,15 +48,9 @@
 <div class="container">
     <div class="starter-template">
         <h1>
-            @if($category == 'mobiles')
-                Мобильные телефоны
-            @elseif($category == 'portable')
-                Портативная техника
-            @elseif($category == 'appliances')
-                Бытовая техника
-           @endif
+            {{ $category->name }}
         </h1>
-    <p> В этом разделе вы найдёте самые популярные мобильные телефонамы по отличным ценам! </p>
+    <p> {{ $category->discription }} </p>
     <div class="row">
         <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
