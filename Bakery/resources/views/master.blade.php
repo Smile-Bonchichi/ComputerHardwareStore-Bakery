@@ -25,7 +25,7 @@
                 <li class="nav-item"> <a class="nav-link" href="{{ route('categories') }}">Категории</a> </li>
                 <li class="nav-item"> <a class="nav-link" href="{{ route('basket') }}">В корзину</a> </li>
             </ul>
-            <span class="navbar-text"> Улан у. Нурдин </span>
+            <span class="navbar-text"> Улан у. Нурдин и Асанов Руслан </span>
         </div>
     </nav>
 
