@@ -16,22 +16,16 @@
     <link href="/css/admin.css" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="{{ route('index') }}">Магазин техники: Пекарня</a>
-            </div>
-            <div id="navbar" class="collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="{{ route('index') }}">Все товары</a></li>
-                    <li ><a href="{{ route('categories') }}">Категории</a> </li>
-                    <li ><a href="{{ route('basket') }}">В корзину</a></li>
-                </ul>
-    
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="">Войти</a></li>
-                </ul>
-            </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="{{ route('index') }}">Магазин техники: Пекарня</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active"> <a class="nav-link" href="{{ route('index') }}">Все товары <span class="sr-only">(current)</span></a> </li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('categories') }}">Категории</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('basket') }}">В корзину</a> </li>
+            </ul>
+            <span class="navbar-text"> Улан у. Нурдин </span>
         </div>
     </nav>
 

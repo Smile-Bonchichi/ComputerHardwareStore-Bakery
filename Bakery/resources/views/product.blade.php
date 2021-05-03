@@ -8,7 +8,7 @@
         <p>Цена: <b>71990 Сом</b></p>
         <img src="http://internet-shop.tmweb.ru/storage/products/iphone_x.jpg">
         <p>Отличный продвинутый телефон с памятью на 64 gb</p>
-        <form action="http://internet-shop.tmweb.ru/basket/add/1" method="POST">
+        <form action="" method="POST">
             <button type="submit" class="btn btn-success" role="button">Добавить в корзину</button>
             <input type="hidden" name="_token" value="olbqlmFBdMvBczBNUUFBgUAtFSkKaz8yXLUWAVWy">        
         </form>
