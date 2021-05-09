@@ -1,82 +1,59 @@
 @extends('master')
 
-@section('content')
+@section('title', 'Корзина')
 
-	<h1>@lang('basket.cart')</h1>
-    <p>@lang('basket.ordering')</p>
-    <div class="panel">
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>@lang('basket.name')</th>
-                <th>@lang('basket.count')</th>
-                <th>@lang('basket.price')</th>
-                <th>@lang('basket.cost')</th>
-            </tr>
-            </thead>
-            <tbody>
-            @foreach($order->skus as $sku)
+@section('content')
+    <div class="starter-template">
+        <h1>Корзина</h1>
+        <p>Оформление заказа</p>
+        <div class="panel">
+            <table class="table table-striped">
+                <thead>
                 <tr>
-                    <td>
-                        <a href="{{ route('sku', [$sku->product->category->code, $sku->product->code, $sku]) }}">
-                            <img height="56px" src="{{ Storage::url($sku->product->image) }}">
-                            {{ $sku->product->__('name') }}
-                        </a>
-                    </td>
-                    <td><span class="badge">{{ $sku->countInOrder }}</span>
-                        <div class="btn-group form-inline">
-                            <form action="{{ route('basket-remove', $sku) }}" method="POST">
-                                <button type="submit" class="btn btn-danger" href=""><span
-                                        class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>
-                                @csrf
-                            </form>
-                            <form action="{{ route('basket-add', $sku) }}" method="POST">
-                                <button type="submit" class="btn btn-success"
-                                        href=""><span
-                                        class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
-                                @csrf
-                            </form>
-                        </div>
-                    </td>
-                    <td>{{ $sku->price }} {{ $currencySymbol }}</td>
-                    <td>{{ $sku->price * $sku->countInOrder }} {{ $currencySymbol }}</td>
+                    <th>Название</th>
+                    <th>Кол-во</th>
+                    <th>Цена</th>
+                    <th>Стоимость</th>
                 </tr>
-            @endforeach
-            <tr>
-                <td colspan="3">@lang('basket.full_cost'):</td>
-                @if($order->hasCoupon())
-                    <td><strike>{{ $order->getFullSum(false) }}</strike>
-                        <b>{{ $order->getFullSum() }}</b> {{ $currencySymbol }}</td>
-                @else
-                    <td>{{ $order->getFullSum() }} {{ $currencySymbol }}</td>
-                @endif
-            </tr>
-            </tbody>
-        </table>
-        @if(!$order->hasCoupon())
-            <div class="row">
-                <div class="form-inline pull-right">
-                    <form method="POST" action="{{ route('set-coupon') }}">
-                        @csrf
-                        <label for="coupon">@lang('basket.coupon.add_coupon'):</label>
-                        <input class="form-control" type="text" name="coupon">
-                        <button type="submit" class="btn btn-success">@lang('basket.coupon.apply')</button>
-                    </form>
-                </div>
-            </div>
-            @error('coupon')
-            <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
-        @else
-            <div>@lang('basket.coupon.your_coupon') {{ $order->coupon->code }}</div>
-        @endif
-        <br>
-        <div class="row">
+                </thead>
+                <tbody>
+                @foreach($order->products as $product)
+                    <tr>
+                        <td>
+                            <a href="{{ route('product', [$product->category->code, $product->code]) }}">
+                                <img height="56px"
+                                     src="http://internet-shop.tmweb.ru/storage/products/iphone_x.jpg">
+                                {{ $product->name }}
+                            </a>
+                        </td>
+                        <td><span class="badge">1</span>
+                            <div class="btn-group">
+                                <a type="button" class="btn btn-danger"
+                                   href="">-<span
+                                        class="glyphicon glyphicon-minus" aria-hidden="true"></span></a>
+                                <form action="{{ route('basket-add', $product) }}" method="POST">
+                                    <button type="submit" class="btn btn-success"
+                                            href="">+<span
+                                            class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+                                    @csrf
+                                </form>
+                            </div>
+                        </td>
+                        <td>{{ $product->price }} руб.</td>
+                        <td>{{ $product->price }} руб.</td>
+                    </tr>
+                @endforeach
+                <tr>
+                    <td colspan="3">Общая стоимость:</td>
+                    <td>71990 руб.</td>
+                </tr>
+                </tbody>
+            </table>
             <br>
             <div class="btn-group pull-right" role="group">
-                <a type="button" class="btn btn-success"
-                   href="{{ route('basket-place') }}">@lang('basket.place_order')</a>
+                <a type="button" class="btn btn-success" href="http://laravel-diplom-1.rdavydov.ru/basket/place">Оформить
+                    заказ</a>
             </div>
         </div>
-
+    </div>
 @endsection
