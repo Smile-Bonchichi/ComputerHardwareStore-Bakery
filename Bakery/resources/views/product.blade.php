@@ -10,7 +10,7 @@
         <p>Отличный продвинутый телефон с памятью на 64 gb</p>
         <form action="" method="POST">
             <button type="submit" class="btn btn-success" role="button">Добавить в корзину</button>
-            <input type="hidden" name="_token" value="olbqlmFBdMvBczBNUUFBgUAtFSkKaz8yXLUWAVWy">        
+            <input type="hidden" name="_token" value="olbqlmFBdMvBczBNUUFBgUAtFSkKaz8yXLUWAVWy">
         </form>
     </div>
 
